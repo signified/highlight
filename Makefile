@@ -43,7 +43,7 @@ STYLES += dracula
 STYLES += one-dark
 STYLES += lilypond
 
-pygmentize = pygmentize -S $(style) -f html -a .highlight > css/$(style).css;
+pygmentize = pygmentize -S $(style) -f html -a .highlight > pygments/css/$(style).css;
 
 cssfiles:
 	@$(foreach style, $(STYLES), $(pygmentize))
