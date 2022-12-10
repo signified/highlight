@@ -2,16 +2,10 @@
 
 ## Pygments
 
-```
-$ pip install -r requirements.txt
-$ make
-```
-
-### Styles
-
-```python
-from pygments.styles import STYLE_MAP
-STYLE_MAP.keys()
+```shell
+cd pygments
+pip install -r requirements.txt
+make
 ```
 
 ## Rouge
@@ -22,8 +16,8 @@ TODO: https://github.com/rouge-ruby/rouge
 
 TODO: https://github.com/alecthomas/chroma
 
-## Example link to CSS
+## Usage
 
-```
-https://cdn.jsdelivr.net/gh/signified/highlight@1.0.0/pygments/css/default.css
+```html
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/signified/highlight@1.0.0/pygments/css/default.css">
 ```

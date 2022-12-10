@@ -32,6 +32,7 @@ STYLES += abap
 STYLES += solarized-dark
 STYLES += solarized-light
 STYLES += sas
+STYLES += staroffice
 STYLES += stata
 STYLES += stata-light
 STYLES += stata-dark
@@ -42,8 +43,11 @@ STYLES += gruvbox-light
 STYLES += dracula
 STYLES += one-dark
 STYLES += lilypond
+STYLES += nord
+STYLES += nord-darker
+STYLES += github-dark
 
-pygmentize = pygmentize -S $(style) -f html -a .highlight > pygments/css/$(style).css;
+pygmentize = pygmentize -S $(style) -f html -a .highlight > css/$(style).css;
 
 cssfiles:
 	@$(foreach style, $(STYLES), $(pygmentize))
