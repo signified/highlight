@@ -16,12 +16,6 @@ bundle install
 make
 ```
 
-### Get all styles
-
-```
-rougify help style
-```
-
 ## Chroma
 
 TODO: https://github.com/alecthomas/chroma

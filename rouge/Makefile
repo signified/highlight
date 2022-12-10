@@ -22,7 +22,7 @@ STYLES += pastie
 STYLES += thankful_eyes
 STYLES += tulip
 
-rougify = rougify style $(style) > css/$(style).css
+rougify = rougify style $(style) > css/$(style).css;
 
 cssfiles:
 	@$(foreach style, $(STYLES), $(rougify))
