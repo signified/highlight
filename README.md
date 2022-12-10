@@ -10,7 +10,17 @@ make
 
 ## Rouge
 
-TODO: https://github.com/rouge-ruby/rouge
+```shell
+cd rouge
+bundle install
+make
+```
+
+### Get all styles
+
+```
+rougify help style
+```
 
 ## Chroma
 
