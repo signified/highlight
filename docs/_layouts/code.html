@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="{{- site.description -}}">
+    <link rel="icon" href="{{- '/assets/img/highlight.svg' | relative_url -}}">
+    <link rel="stylesheet" href="pygments/css/default.css" id="style">
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+      }
+      pre {
+        margin: 0;
+        padding: 1em;
+        height: 100vh;
+      }
+    </style>
+  </head>
+  <body>
+    {{- content -}}
+    <script>
+      let params = new URLSearchParams(window.location.search);
+      let style = params.get('style');
+      document.getElementById('style').href = style;
+    </script>
+  </body>
+</html>

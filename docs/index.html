@@ -1,0 +1,31 @@
+---
+layout: default
+---
+
+<header class="bg-dark text-light py-5 mb-5">
+  <div class="container">
+    <h1 class="display-1 mb-4"><i class="bi-braces-asterisk"></i> {{ site.title }}</h1>
+    <p class="lead mb-4">{{ site.description }}</p>
+    <a class="btn btn-secondary" href="https://github.com/signified/highlight" target="_blank"><i class="bi-github"></i> View on GitHub</a>
+  </div>
+</header>
+<main>
+  <div class="container">
+    {% for highlighter in site.data.highlighters %}
+      <h2 class="display-6 mb-5">{{- highlighter.title -}}</h2>
+      <div class="row row-cols-1 row-cols-lg-2 row-cols-xxl-3">
+        {% for style in highlighter.styles %}
+          <div class="col mb-5">
+            <h3>{{- style -}}</h3>
+            <div style="height:300px">
+              <embed type="text/html" src="{{- '/code' | relative_url -}}?style=https://cdn.jsdelivr.net/gh/signified/highlight/{{- highlighter.title | downcase -}}/css/{{- style -}}.css" class="w-100 h-100">
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+      {% unless forloop.last %}
+        <hr class="my-5">
+      {% endunless %}
+    {% endfor %}
+  </div>
+</main>
