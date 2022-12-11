@@ -5,20 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="{{- site.description -}}">
     <link rel="icon" href="{{- '/assets/img/highlight.svg' | relative_url -}}">
-    <link rel="stylesheet" href="pygments/css/default.css" id="style">
-    <style>
-      body {
-        margin: 0;
-        padding: 0;
-      }
-      pre {
-        margin: 0;
-        padding: 1em;
-        height: 100vh;
-      }
-    </style>
+    <link rel="stylesheet" href="{{- '/assets/css/style.css' | relative_url -}}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/signified/highlight@1.1.0/pygments/css/default.css" id="style">
   </head>
-  <body>
+  <body class="code">
     {{- content -}}
     <script>
       let params = new URLSearchParams(window.location.search);

@@ -1,0 +1,9 @@
+.code {
+  margin: 0;
+  padding: 0;
+}
+
+.code div.highlight {
+  margin: 0;
+  padding: 1em;
+}

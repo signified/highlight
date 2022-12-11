@@ -15,10 +15,24 @@ layout: default
       <h2 class="display-6 mb-5">{{- highlighter.title -}}</h2>
       <div class="row row-cols-1 row-cols-lg-2 row-cols-xxl-3">
         {% for style in highlighter.styles %}
+          {% capture style_url %}https://cdn.jsdelivr.net/gh/signified/highlight@{{- site.version -}}/{{- highlighter.title | downcase -}}/css/{{- style -}}.css{% endcapture %}
           <div class="col mb-5">
-            <h3>{{- style -}}</h3>
+            <div class="row">
+              <div class="col-8">
+                <h3>{{- style -}}</h3>
+              </div>
+              <div class="col-4">
+                <div class="dropdown float-end">
+                  <button class="btn btn-sm btn-outline-dark dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-clipboard"></i></button>
+                  <ul class="dropdown-menu dropdown-menu-end">
+                    <li><a class="dropdown-item" href="{{- style_url -}}" data-copy="url">Copy URL</a></li>
+                    <li><a class="dropdown-item" href="{{- style_url -}}" data-copy="html">Copy HTML</a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
             <div style="height:300px">
-              <embed type="text/html" src="{{- '/code' | relative_url -}}?style=https://cdn.jsdelivr.net/gh/signified/highlight/{{- highlighter.title | downcase -}}/css/{{- style -}}.css" class="w-100 h-100">
+              <embed type="text/html" src="{{- '/code' | relative_url -}}?style={{- style_url -}}" class="w-100 h-100">
             </div>
           </div>
         {% endfor %}

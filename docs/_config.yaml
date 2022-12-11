@@ -2,3 +2,4 @@ title: Highlight
 description: Every Pygments and Rouge CSS stylesheet all in one place and ready to use.
 baseurl: "/highlight"
 url: "https://signified.github.io"
+version: 1.1.0
