@@ -1,3 +1,8 @@
-.DS_Store
-Gemfile.lock
 __pycache__
+_site
+.DS_Store
+.jekyll-cache
+.jekyll-metadata
+.sass-cache
+Gemfile.lock
+vendor
