@@ -12,7 +12,7 @@ layout: home
 <main>
   <div class="container">
     {% for highlighter in site.data.highlighters %}
-      <h2 class="display-6 mb-5">{{- highlighter.title -}}</h2>
+      <h2 class="display-6 mb-5" id="{{- highlighter.title | slugify -}}">{{- highlighter.title -}}</h2>
       <div class="row row-cols-1 row-cols-lg-2 row-cols-xxl-3">
         {%- assign styles = highlighter.styles | sort -%}
         {% for style in styles %}
