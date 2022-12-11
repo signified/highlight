@@ -1,0 +1,23 @@
+---
+layout: default
+---
+
+{{ content }}
+<script>
+  document.querySelectorAll('[data-copy]').forEach(function (element) {
+    element.addEventListener('click', function(event) {
+      let type = element.getAttribute('data-copy');
+      let value = element.href;
+      if (type == 'html') {
+        value = `<link rel="stylesheet" href="${element.href}">`;
+      }
+      let textarea = document.createElement('textarea');
+      document.body.appendChild(textarea);
+      textarea.value = value;
+      textarea.select();
+      document.execCommand('copy');
+      document.body.removeChild(textarea);
+      event.preventDefault();
+    });
+  });
+</script>

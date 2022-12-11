@@ -12,23 +12,5 @@
   <body>
     {{ content }}
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
-    <script>
-      document.querySelectorAll('[data-copy]').forEach(function (element) {
-        element.addEventListener('click', function(event) {
-          let type = element.getAttribute('data-copy');
-          let value = element.href;
-          if (type == 'html') {
-            value = `<link rel="stylesheet" href="${element.href}">`;
-          }
-          let textarea = document.createElement('textarea');
-          document.body.appendChild(textarea);
-          textarea.value = value;
-          textarea.select();
-          document.execCommand('copy');
-          document.body.removeChild(textarea);
-          event.preventDefault();
-        });
-      });
-    </script>
   </body>
 </html>
