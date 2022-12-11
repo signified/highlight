@@ -1,35 +1,22 @@
 # Highlight
 
-Every [Pygments](https://pygments.org/) and [Rouge](http://rouge.jneen.net/) CSS stylesheet all in one place and ready to use.
+Every Pygments and Rouge CSS stylesheet all in one place and ready to use.
 
 ## Installation
 
-```shell
-git clone git@github.com:signified/highlight.git
-cd highlight
+Choose a [Pygments](https://signified.github.io/highlight/#pygments) or [Rouge](https://signified.github.io/highlight/#rouge) stylesheet and add it to the `<head>` of your document:
+
+```html
+<link rel="stylesheet" href="default.css">
 ```
 
-### Pygments
-
-```shell
-cd pygments
-pip install -r requirements.txt
-make
-```
-
-### Rouge
-
-```shell
-cd rouge
-bundle install
-make
-```
-
-## Usage
+or via jsDeliver:
 
 ```html
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/signified/highlight@1.1.0/pygments/css/default.css">
 ```
+
+You can view all styles at https://signified.github.io/highlight.
 
 ## Contributing
 
