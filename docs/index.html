@@ -11,40 +11,50 @@ layout: home
 </header>
 <main>
   <div class="container">
-    {% for highlighter in site.data.highlighters %}
-      <h2 class="display-6 mb-5" id="{{- highlighter.title | slugify -}}">{{- highlighter.title -}}</h2>
-      <div class="row row-cols-1 row-cols-lg-2 row-cols-xxl-3">
+    <ul class="nav nav-tabs" role="tablist">
+      {% for highlighter in site.data.highlighters %}
+        {%- assign slug = highlighter.title | slugify -%}
+        <li class="nav-item" role="presentation">
+          <button class="nav-link{% if forloop.first %} active{% endif %}" id="{{- slug -}}-tab" data-bs-toggle="tab" data-bs-target="#{{- slug -}}-tab-pane" type="button" role="tab" aria-controls="{{- slug -}}-tab-pane"{% if forloop.first %} aria-selected="true"{% endif %}>{{- highlighter.title -}}</button>
+        </li>
+      {% endfor %}
+    </ul>
+    <div class="tab-content">
+      {% for highlighter in site.data.highlighters %}
+        <h2 class="visually-hidden">{{- highlighter.title -}}</h2>
+        {%- assign slug = highlighter.title | slugify -%}
         {%- assign styles = highlighter.styles | sort -%}
-        {% for style in styles %}
-          {% capture style_url %}https://cdn.jsdelivr.net/gh/signified/highlight@{{- site.version -}}/{{- highlighter.title | downcase -}}/css/{{- style -}}.css{% endcapture %}
-          {% capture github_url %}https://github.com/signified/highlight/blob/main/{{- highlighter.title | downcase -}}/css/{{- style -}}.css{% endcapture %}
-          <div class="col mb-5">
-            <div class="row">
-              <div class="col-8">
-                <h3 class="h4 font-monospace">{{- style -}}</h3>
-              </div>
-              <div class="col-4">
-                <div class="dropdown float-end">
-                  <button class="btn btn-sm btn-outline-dark dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-clipboard"></i></button>
-                  <ul class="dropdown-menu dropdown-menu-end">
-                    <li><a class="dropdown-item small" href="{{- style_url -}}" data-copy="url">Copy URL</a></li>
-                    <li><a class="dropdown-item small" href="{{- style_url -}}" data-copy="html">Copy HTML</a></li>
-                    <li><hr class="dropdown-divider"></li>
-                    <li><a class="dropdown-item small" href="{{- github_url -}}" target="_blank">View on GitHub</a></li>
-                  </ul>
+        <div class="tab-pane{% if forloop.first %} show active{% endif %}" id="{{- slug -}}-tab-pane" role="tabpanel" aria-labelledby="{{- slug -}}-tab" tabindex="0">
+          <div class="row row-cols-1 row-cols-lg-2 row-cols-xxl-3">
+            {% for style in styles %}
+              {% capture style_url %}https://cdn.jsdelivr.net/gh/signified/highlight@{{- site.version -}}/{{- highlighter.title | downcase -}}/css/{{- style -}}.css{% endcapture %}
+              {% capture github_url %}https://github.com/signified/highlight/blob/main/{{- highlighter.title | downcase -}}/css/{{- style -}}.css{% endcapture %}
+              <div class="col mt-5">
+                <div class="row">
+                  <div class="col-8">
+                    <h3 class="h5 font-monospace">{{- style -}}</h3>
+                  </div>
+                  <div class="col-4">
+                    <div class="dropdown float-end">
+                      <button class="btn btn-sm btn-outline-dark dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-clipboard"></i></button>
+                      <ul class="dropdown-menu dropdown-menu-end">
+                        <li><a class="dropdown-item small" href="{{- style_url -}}" data-copy="url">Copy URL</a></li>
+                        <li><a class="dropdown-item small" href="{{- style_url -}}" data-copy="html">Copy HTML</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item small" href="{{- github_url -}}" target="_blank">View on GitHub</a></li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+                <hr>
+                <div style="height:300px">
+                  <embed type="text/html" src="{{- '/code' | relative_url -}}?style={{- style_url -}}" class="w-100 h-100">
                 </div>
               </div>
-            </div>
-            <hr>
-            <div style="height:300px">
-              <embed type="text/html" src="{{- '/code' | relative_url -}}?style={{- style_url -}}" class="w-100 h-100">
-            </div>
+            {% endfor %}
           </div>
-        {% endfor %}
-      </div>
-      {% unless forloop.last %}
-        <hr class="my-5">
-      {% endunless %}
-    {% endfor %}
+        </div>
+      {% endfor %}
+    </div>
   </div>
 </main>
